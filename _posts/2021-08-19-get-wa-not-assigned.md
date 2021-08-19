@@ -1,0 +1,39 @@
+---
+layout: post
+title: "GETWA_NOT_ASSIGNED 런타임 에러 원인 및 해결 방법"
+date: "2021-08-19 18:07:10"
+categories: [SAP, ABAP, ERROR]
+tags: [SAP, ABAP, ERROR]
+thumbnail: img/getwa_not_assigned.png
+---
+
+> 인터널 테이블과 ALV 필드카탈로그 사이에 매핑되지 않은 필드가 있는지 확인
+>
+> 1. 필드카탈로그 필드명과 인터널 테이블 필드명이 똑같은지 확인
+> 2. 필드카탈로그 필드명을 대문자로 입력했는지 확인  → 소문자로 입력하면 에러
+
+<br/>
+
+![getwa_not_assigned_1](https://lh3.googleusercontent.com/ip4Gbov2PEDz4b_U5TwPIMOJNtQH0A1GAct0ytG0my30aiPLooR0Bt_W6WNY0do0aVi-swQHAAJq5zNzzDmFiGzCnhuz8dwkf_8ErqZ4EwMNKnq-a-HT92rDdyVRas93yUPA67p-7LCXHHFthaswDUmzG6i0gKKYLV42vmqv5KxAFqbSdwNd-ONbFbEBMh7FMWROhAuHRLO3Bx1zyQXHoAWXYpq9uMCbPWcYRuNWBY0AweMdBlCzIGciLBj5oiAT_QIlQ7vzMGNuIKLadBEcGAIgMsXhysy9-EMTIAl86PepdLVieJNZb93LpLHVspXy2p6QPlwl4YwE2kXA_2N9WzAEeQQ4PWzZb-_tA73Jd52Gr6bz1Wir-4ZDYz953aKvY00Ke56jl9ns-ULVy81_D6Wfgrq2WXUz-D7c_KGVz8-G_cJ7LRo3K5wB4dM3cmebcw1UBbwSNXBxvdb5AFEj8gWy4RdiMBrOee3Nsp1f14IBaaIdecyFO_aNNBZIBGXCZ2jUjDSwuz5Mjctxts9-xzyn0_T8smgcvLM3kF2FERSWEjMJoX0J1Eyo_5T2adBosLehkHxumr9sH5QNJacpWvtnOLnhnyCNOAKH2nJo7DgonxPCG8wab_sy0G1RCHvN_2VTjx_44zCw8-mAELE3-VVZp34JoZVs8dRkKxbUcKezqdFtZixY1ovFi3Yos8R_XhGfJqzhBcszSQxe_rNauVU=w686-h343-no?authuser=0)
+
+
+
+<br/>
+
+
+
+![getwa_not_assigned_2](https://lh3.googleusercontent.com/AzWT1RT706hYg57Z2TPDuuo83XqTtBibwS4VtdBzT25TpicU_SI6dkosobhchAF8MtyiIBkm3B5y3skgpNldCnk5ErFUnIPu7MkHt4ZiSQ1bfJiHKiGB71EM_dZcik9b4gE_hCLuhzdLooTbPiEqmw_jopNPluvXNBv0ETWsxrFZFf5nGQRS_3W62RIyXsqLN-N6cJ2waSymjD1oqFA1XLPiYW6zhLmuoQ8FqbbNqlSlYNIDWv1AUuBAbwPGDpKk3TcCm9mk4G58z3Xvk6A0GDddENfqxVIrSlY6tk_Tm0ChxkJ2Qs7esTOofq2NZS_VGbqAdiLGNt_ifG25dqflKBMVJWR4C7Ntlp6PG0Jfqg7Q-FU6I0HXCs6FVSZdJ0pSW16TBAywz4fsHD1gmJTPtQwO9nCB2DU1gD1C29Vvq7_pYB14bm6zV3kA6IpSwVd75UhoxFvmOlUCF2uFlca58eC4fq2VqlOw5los-OgN6H_yXl8z2CL5p5bhtPnA7_GzDKUvspKlWRimgrWB6QHBW3-0PF20RFc5Q9gDtB2SalP8EVVg9KzG4j8uKAWHYmx1PJy9WfBz9epYfgeh-7DH2YBjHt1O9iVcLNJUD2ldAhrfARm9VgXhdcbTRmrKaIdyd0-vbPxXQZ5PDai5w3fHifG3_lmVgdFkjeU1GaNYZ2AQsiRPNKskaInuU_--lj6Iki-TOpDm46KJvw0FOeFu1y0=w598-h74-no?authuser=0)
+
+
+
+<br/>
+
+
+
+위와 같이 `서로 필드명이 다른 경우` 아래와 같이 에러가 발생한다.
+
+또한 **자주 하는 실수**로 `필드카탈로그명을 소문자로 입력한 경우`도 에러가 나니 주의! :eyes:
+
+
+
+![getwa_not_assigned](https://lh3.googleusercontent.com/02rw-G-JyRLLEGlJciXHorrJKCl_9UgmLGLnVz3BVyUbMtm5B_Q7ajG6mb7HidtZPhDdZCIhGXnxBNQkmmxQNZMf_Gko1FiD_nwsCF9ZY4WRCDIsIwYhiuxvSUbtwX8DRzdw_hkk_lSwazMZVsLoh_uCeSK9voRrrULlKsbDswUonkxBYstKPFGenMMY9iQ-R2YlJWVSAtypbabicsheIGVaUyUvis6Rcg1Reh0M7V0q0ruy0Pil8xnzz_xnVnzv2ZCqLUFCIf7snjHQvr8E56808bIn1dJ6nK5apVd8sH0PQIx8jYyoVIxYLZzzypsEqsxQMH1XvjHPs3IZ1SgVNU-uL67sI2wnJus_raWnOTGwwMZd4E7Cgj9n6OUFvlSv3QSc-mM1rM3vRcGeqgalxDiSTUzmjIJ03cauQloyFQzYXUasm4QoMkz65EGGnVLm4glBB7ntqn2YCzI7-E9vkWA2LJI5f2i681C-CurvDoBACHxn01Ya2YCg5TGP4FYrAak7wD2biuDCV4f0ORIv3YwgJ7Bg1agcfEFpT427yPocK_poItJgI-yKUfPxTYqIsX1Gf-o8OTmeic4ustqJbMMqO-s9bCe-Sc4S6wnO9q2IDUquchkSg4fXR3kCIYffHyJEt_xb5VAmjUW-fpBgWJUtoUsHsoXx1__18FQdp9EsNJHl8Dk67hLmN7MJqnVikeqzW3KkB0ODBT-1fX1855s=w950-h821-no?authuser=0)
