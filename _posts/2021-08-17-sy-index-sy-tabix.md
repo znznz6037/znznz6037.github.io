@@ -6,7 +6,7 @@ title: "sy-tabix와 sy-index의 차이"
 
 date:  "2021-08-17 18:05:01"
 
-categories: [SAP, ABAP]
+categories: [SAP]
 
 tags: [SAP, ABAP]
 

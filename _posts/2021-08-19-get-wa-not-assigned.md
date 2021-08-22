@@ -2,7 +2,7 @@
 layout: post
 title: "GETWA_NOT_ASSIGNED 런타임 에러 원인 및 해결 방법"
 date: "2021-08-19 18:07:10"
-categories: [SAP, ABAP, ERROR]
+categories: [SAP]
 tags: [SAP, ABAP, ERROR]
 ---
 

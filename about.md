@@ -9,11 +9,14 @@ title: About
   2021.03 ~ 현대오토에버 - 현대로템 SAP SM 🏭
 </p>
 
---- 
+
+---
+
+
 
 ## Dev Blog
 
-💻  일하면서 발생하는 `Issue` 및 `개발 Tip` 기록 📝 
+:man_technologist: 일하면서 발생하는 `Issue` 및 `개발 Tip` 기록 📝  
 
 {% highlight abap %}
 
