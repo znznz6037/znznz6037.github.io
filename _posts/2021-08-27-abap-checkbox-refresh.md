@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "ABAP checkbox refresh"
+title: "ABAP ALV refresh checkbox"
 date: "2021-08-27 19:30:21"
 categories: [SAP]
 tags: [SAP, ABAP, ALV]
