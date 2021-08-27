@@ -8,7 +8,7 @@ tags: [SAP, ABAP, ERROR]
 
 
 
-테이블, structure 수정 후 활성화하려고 할 때 다음과 같은 Enhancement category ~ 에러가 뜬다.
+테이블, structure 수정 후 활성화하려고 할 때 다음과 같은 Enhancement category ~ 에러가 떴다.
 
 (아래는 warning이지만, error 발생 시 캡처하지 못해서 warning 이미지로 대체)
 
