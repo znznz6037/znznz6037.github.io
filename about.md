@@ -1,8 +1,9 @@
 ---
 layout: page
+title: "ABOUT"
 ---
 
-## [ABOUT](https://programmers.co.kr/pr/znznz6037)
+> [About me](https://programmers.co.kr/pr/znznz6037)
 
 ---
 
