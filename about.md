@@ -1,22 +1,12 @@
 ---
 layout: page
-title: About
 ---
 
-<p class="message">
-  2015.03 ~ 2021.02 부산대학교 정보컴퓨터공학부 🎓
-  <br/>
-  2021.03 ~ 현대오토에버 - 현대로템 SAP SM 🏭
-</p>
-
+## [ABOUT](https://programmers.co.kr/pr/znznz6037)
 
 ---
 
-
-
-## Dev Blog
-
-:man_technologist: 일하면서 발생하는 `Issue` 및 `개발 Tip` 기록 📝  
+#### Dev Blog
 
 {% highlight abap %}
 
