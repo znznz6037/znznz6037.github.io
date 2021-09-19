@@ -41,7 +41,7 @@ nav:
     - { Categories: '/blog/categories/' }
     - { Tags: '/blog/tags/' }
   About:          
-    - '/about/'
+    - 'https://programmers.co.kr/pr/znznz6037'
   GitHub Project: 
     - 'https://github.com/znznz6037/znznz6037.github.io'
 
