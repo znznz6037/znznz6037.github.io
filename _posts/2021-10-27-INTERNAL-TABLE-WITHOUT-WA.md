@@ -21,17 +21,17 @@ tags: [SAP, ABAP, ERROR]
 
 ### 헤더없는 ITAB 읽는 4가지 방법
 
-1. INTO wa  
-   헤더가 없는 대신  Work Area에 담아서 READ 하는 방식  
-   `READ [ITAB] WITH KEY [CONDITION] INTO WA`  
-   `LOOP AT [ITAB] INTO WA`
+1. INTO WA  
+   헤더가 없으니 대신에 Work Area에 담아서 READ 하는 방식  
+   `READ [ITAB] WITH KEY [CONDITION] INTO WA.`  
+   `LOOP AT [ITAB] INTO WA.`
 
    
 
-2. ASSIGNING <fs>  
+2. ASSIGNING `<fs>`  
    헤더 대신 field symbol에 assign  
-   `READ TABLE [ITAB] ASSIGNING <fs>`  
-   `LOOP AT [ITAB] ASSIGNING <fs>`
+   `READ TABLE [ITAB] ASSIGNING <fs>.`  
+   `LOOP AT [ITAB] ASSIGNING <fs>.`
 
    
 
@@ -40,7 +40,7 @@ tags: [SAP, ABAP, ERROR]
 
    ```ABAP
    DATA: lr_mara TYPE REF TO mara,
-   	  lt_mara TYPE TABLE OF mara.
+   	    lt_mara TYPE TABLE OF mara.
    	  
    SELECT * FROM mara INTO TABLE lt_mara UP TO 10 rows.
    

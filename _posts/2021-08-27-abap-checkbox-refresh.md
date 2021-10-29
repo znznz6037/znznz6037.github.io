@@ -48,35 +48,34 @@ data_changed 이벤트 내에서 팝업창 결과에 따라 modify_cell 메소�
 
 클래스 구현 부분 
 
-{% highlight abap %}
-
+```ABAP
 "EVENT_RECEIVER 클래스 def
 
 CLASS EVENT_RECEIVER DEFINITION.
 
-​	PUBLIC SECTION.
+	PUBLIC SECTION.
 
-​		METHODS: CONSTRUCTOR
+		METHODS: CONSTRUCTOR
 
-​			IMPORTING E_OBJECT_TEXT TYPE C,
-
- 
-
-​		HANDLE_DATA_CHANGED
-
-​			FOR EVENT DATA_CHANGED OF CL_GUI_ALV_GRID
-
-​			IMPORTING ER_DATA_CHANGED e_ucomm,
+			IMPORTING E_OBJECT_TEXT TYPE C,
 
  
 
-​		HANDLE_DATA_CHANGED_FINISHED
+		HANDLE_DATA_CHANGED
 
-​			FOR EVENT DATA_CHANGED_FINISHED OF CL_GUI_ALV_GRID
+			FOR EVENT DATA_CHANGED OF CL_GUI_ALV_GRID
 
-​			IMPORTING ER_DATA_CHANGED e_ucomm,
+			IMPORTING ER_DATA_CHANGED e_ucomm,
 
-​		~~~ 중략. 
+ 
+
+		HANDLE_DATA_CHANGED_FINISHED
+
+			FOR EVENT DATA_CHANGED_FINISHED OF CL_GUI_ALV_GRID
+
+			IMPORTING ER_DATA_CHANGED e_ucomm,
+
+"		~~~ 중략. 
 
 ENDCLASS.
 
@@ -86,149 +85,103 @@ ENDCLASS.
 
 CLASS EVENT_RECIEVER IMPLEMENTATION.
 
-​	METHOD CONSTRUCTOR.
+	METHOD CONSTRUCTOR.
 
-​		CALL METHOD SUPER->CONSTURCTOR.
+		CALL METHOD SUPER->CONSTURCTOR.
 
-​	ENDMETHOD.
-
- 
-
-​	METHOD HANDLE_DATA_CHANGED.
-
-​		PERFORM handle_data_changed_grid USING er_data_changed e_ucomm.
-
-​	ENDMETHOD.
+	ENDMETHOD.
 
  
 
-​	"핵심!!!!!!!!!!!!!!!!!!!!!
+	METHOD HANDLE_DATA_CHANGED.
 
-​	METHOD HANDLE_DATA_CHANGED_FINISHED.
+		PERFORM handle_data_changed_grid USING er_data_changed e_ucomm.
 
-​		PERFORM HANDLE_DATA_CHANGED_FINISHED_grid USING E_MODIFIED ET_GOOD_CELLS.
+	ENDMETHOD.
 
-​	ENDMETHOD.
+ 
+
+	"핵심!!!!!!!!!!!!!!!!!!!!!
+
+	METHOD HANDLE_DATA_CHANGED_FINISHED.
+
+		PERFORM HANDLE_DATA_CHANGED_FINISHED_grid USING E_MODIFIED ET_GOOD_CELLS.
+
+	ENDMETHOD.
 
 
 
-​	~~~ 중략.
+"~~~ 중략.
 
 ENDCLASS.
+```
 
-{% endhighlight %}
 
- ---
+
+---
 
 서브루틴 구현 부분
 
-{% highlight abap %}
-
+```ABAP
 "data changed finished 이벤트구현함수
 
 FORM handle_data_changed_finished_grid USING p_modified pt_good_cells.
-
-​	CHECK p_modified IS NOT INITIAL.
-
-​	PERFORM refresh_grid USING grid.
+	CHECK p_modified IS NOT INITIAL.
+	PERFORM refresh_grid USING grid.
 
 ENDFORM
 
- 
-
 "alv refresh 메소드
-
 FORM refresh_grid USING p_grid TYPE REF TO cl_gui_alv_grid.
+	gs_stable_row = 'X'. "refresh 하기전현재 row 위치저장
+	gs_stable_col = 'X'. "refresh 하기전현재 col 위치저장
 
-​	gs_stable_row = 'X'. "refresh 하기전현재 row 위치저장
-
-​	gs_stable_col = 'X'. "refresh 하기전현재 col 위치저장
-
- 
-
-​	CALL METHOD p_grid->refresh_table_display
-
-​		EXPORTING
-
-​			is_stable = gs_stable.
+	CALL METHOD p_grid->refresh_table_display
+		EXPORTING
+			is_stable = gs_stable.
 
 ENDFORM.
-
- 
 
 "data_changed 구현
-
 FORM handle_data_changed_grid USING ps_data_changed TYPE REF TO cl_alv_changed_data_protocol p_ucomm TYPE sy-ucomm.
 
-​	DATA: ls_good TYPE lvc_s_modi,
+	DATA: ls_good TYPE lvc_s_modi,
+	lt_itab LIKE TABLE OF (테이블),
+	ls_itab LIKE LINE OF lt_itab. 
 
-​	lt_itab LIKE TABLE OF (테이블),
+	LOOP AT ps_data_changed->mt_good_cells INTO ls_good.
+		READ TABLE (alv 인터널테이블변수) INDEX ls_good-row_id. 
+		CASE ls_good-fieldname.
+			WHEN 'ALV 필드명'.
+				PERFORM change_field USING ls_good ps_data_changed.
+		ENDCASE.
+	ENDLOOP. 
 
-​	ls_itab LIKE LINE OF lt_itab.
-
- 
-
-​	LOOP AT ps_data_changed->mt_good_cells INTO ls_good.
-
-​		READ TABLE (alv 인터널테이블변수) INDEX ls_good-row_id. 
-
-​		CASE ls_good-fieldname.
-
-​			WHEN 'ALV 필드명'.
-
-​				PERFORM change_field USING ls_good ps_data_changed.
-
-​		ENDCASE.
-
-​	ENDLOOP.
-
- 
-
-​	PERFORM refresh_grid USING grid.
+	PERFORM refresh_grid USING grid.
 
 ENDFORM.
 
- 
-
 FORM change_field USING ps_changed TYPE lvc_s_modi pt_changed TYPE REF TO cl_alv_changed_data_protocol.
+	DATA: l_var(40),
+	l_err TYPE c.
 
- 
+	"현재바뀐 ALV 필드값 가져오기
+	CALL METHOD pt_changed->get_cell_value 
+		EXPORTING
+			i_row_id = ps_changed-row_id
+			i_fieldname = 'ALV 필드명'
+		IMPORTING
+			e_value = l_var. 
 
-​	DATA: l_var(40),
+	"바꾸고자하는값적용
+	CALL METHOD pt_changed->modify_cell
+		EXPORTING
+			i_row_id = ps_changed-row_id
+			i_fieldname = 'ALV 필드명'
+			i_value = "바꾸고자 하는 값".
+```
 
-​	l_err TYPE c.
 
- 
-
-​	"현재바뀐 ALV 필드값 가져오기
-
-​	CALL METHOD pt_changed->get_cell_value 
-
-​		EXPORTING
-
-​			i_row_id = ps_changed-row_id
-
-​			i_fieldname = 'ALV 필드명'
-
-​		IMPORTING
-
-​			e_value = l_var.
-
- 
-
-​	"바꾸고자하는값적용
-
-​	CALL METHOD pt_changed->modify_cell
-
-​		EXPORTING
-
-​			i_row_id = ps_changed-row_id
-
-​			i_fieldname = 'ALV 필드명'
-
-​			i_value = "바꾸고자 하는 값".
-
- {% endhighlight %}
 
 ---
 
@@ -248,9 +201,3 @@ SET HANDLER g_event_rece->handle_data_changed_finished FOR grid.
 
 data_chagned 메소드에서 원하는대로 동작이 안 된다면,  
 data_changed_finsihed 메소드에 답이 있을지도..?
-
-
-
-코드 하이라이트 부분 줄바꿈이 너무 지저분하니
-폰트 크기 조절 좀 해야될 듯
-
