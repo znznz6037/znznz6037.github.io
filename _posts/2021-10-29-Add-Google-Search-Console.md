@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Jekyll 블로그 검색엔진에 노출시키기"
-date: "2021-10-31 19:34:32"
+date: "2021-11-13 12:53:32"
 categories: [Blog]
 tags: [Blog, Jekyll]
 ---
