@@ -1,7 +1,7 @@
 # Site Info
-title: _sebeom
-tagline: "_sebeom"
-description: ''
+title: "_Cozy"
+tagline: "_Cozy"
+description: '편안함에 이르자'
 baseurl: ''
 url: http://znznz6037.github.io
 logo: '/public/favicon.png'
@@ -26,11 +26,11 @@ version: 1.1.0
 # About/contact
 author: 
   name: znznz6037
-  description: <a href="https://programmers.co.kr/pr/znznz6037">Hello!</a> 😄 
+  description: <a href="https://programmers.co.kr/pr/znznz6037">편안함에 이르자</a> 🏖
   gravatar:  6681f478d666f7cb51fe7bf6e93242bf # md5 hash of your email address
   contact:
     github:    https://github.com/znznz6037
-    instagram: https://instagram.com/_sebeom
+    #instagram: https://instagram.com/_sebeom
 
 # Navigation (2nd level links supported)
 nav:
