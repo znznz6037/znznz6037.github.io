@@ -1,7 +1,7 @@
 # Site Info
-title: "_Cozy"
-tagline: "_Cozy"
-description: '편안함에 이르자'
+title: "sebeom"
+tagline: "sebeom"
+description: 'sebeom'
 baseurl: ''
 url: http://znznz6037.github.io
 logo: '/public/favicon.png'
@@ -17,7 +17,7 @@ excerpt_separator: "<!-- more -->"
 sass:
   style: compressed
   sass_dir: _scss    
-paginate: 5
+paginate: 1
 paginate_path: '/blog/page:num'
 permalink: pretty
 
@@ -26,7 +26,7 @@ version: 1.1.0
 # About/contact
 author: 
   name: znznz6037
-  description: <a href="https://programmers.co.kr/pr/znznz6037">편안함에 이르자</a> 🏖
+  description: <a href="https://programmers.co.kr/pr/znznz6037">Hello!</a> 🏖
   gravatar:  6681f478d666f7cb51fe7bf6e93242bf # md5 hash of your email address
   contact:
     github:    https://github.com/znznz6037
@@ -40,10 +40,8 @@ nav:
     - '/blog/'
     - { Categories: '/blog/categories/' }
     - { Tags: '/blog/tags/' }
-  About:          
-    - 'https://programmers.co.kr/pr/znznz6037'
-  GitHub Project: 
-    - 'https://github.com/znznz6037/znznz6037.github.io'
+#  About:          
+#    - 'https://programmers.co.kr/pr/znznz6037'
 
 # Where are tags and categories displayed
 tag_page: '/blog/tags/'
