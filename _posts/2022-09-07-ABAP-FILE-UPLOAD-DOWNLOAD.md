@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "ABAP 파일 업로드/다운로드"
+title: "ABAP 파일 업로드, 다운로드"
 date: "2022-09-07 19:30:00"
 categories: [SAP]
 tags: [SAP, ABAP]
