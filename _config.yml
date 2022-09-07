@@ -39,7 +39,7 @@ nav:
   Blog:           
     - '/blog/'
     - { Categories: '/blog/categories/' }
-    - { Tags: '/blog/tags/' }
+    #- { Tags: '/blog/tags/' }
 #  About:          
 #    - 'https://programmers.co.kr/pr/znznz6037'
 

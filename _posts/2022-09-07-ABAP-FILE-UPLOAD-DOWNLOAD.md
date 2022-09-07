@@ -20,7 +20,7 @@ rawstring 데이터 타입을 갖는 도메인을 생성한다.
 도메인 정의 후 파일을 저장할 테이블에 해당 도메인을 추가한 후
 만약 Enhancement Category 관련 에러가 날 경우
 
-![3](https://i.imgur.com/SNdIf9V.png)
+![3](https://i.imgur.com/qg3pecf.png)
 
 Enhancement Category 관련 설정을 해준다.
 
