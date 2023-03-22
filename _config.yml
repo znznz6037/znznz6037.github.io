@@ -48,8 +48,8 @@ tag_page: '/blog/tags/'
 category_page: '/blog/categories/'
 
 hero:
-  image: /public/img/we_will_be_giants_by_yalestewart.jpg
-  caption: Original Artwork &copy; <a href="http://yalestewart.deviantart.com/art/We-Will-Be-Giants-370176475">Yale Stewart</a>
+  image: /public/img/dev_jeans.png
+  caption: Original Artwork &copy; <a href="https://velog.io/@heelieben/님들이-만들어쓰는-개발진스">@dev_hee</a>
 
 # Puglins
 mathjax: true # whether support mathjax
