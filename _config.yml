@@ -1,7 +1,7 @@
 # Site Info
-title: "sebeom"
-tagline: "sebeom"
-description: 'sebeom'
+title: "범모장"
+tagline: "범모장"
+description: ''
 baseurl: ''
 url: http://znznz6037.github.io
 logo: '/public/favicon.png'
@@ -26,7 +26,7 @@ version: 1.1.0
 # About/contact
 author: 
   name: znznz6037
-  description: <a href="https://programmers.co.kr/pr/znznz6037">Hello!</a> 🏖
+  description: 
   gravatar:  6681f478d666f7cb51fe7bf6e93242bf # md5 hash of your email address
   contact:
     github:    https://github.com/znznz6037
